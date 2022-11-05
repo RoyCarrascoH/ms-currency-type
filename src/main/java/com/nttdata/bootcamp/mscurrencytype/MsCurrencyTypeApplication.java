@@ -12,6 +12,10 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+/**
+ * Class MsCurrencyTypeApplication Main.
+ * CurrencyType microservice class MsCurrencyTypeApplication.
+ */
 @SpringBootApplication
 @EnableEurekaClient
 @RequiredArgsConstructor
@@ -22,10 +26,12 @@ public class MsCurrencyTypeApplication {
     }
 
     @Bean
-    public ReactiveRedisTemplate<String, CurrencyType> reactiveJsonPostRedisTemplate(
+    public ReactiveRedisTemplate<String, CurrencyType>
+    reactiveJsonPostRedisTemplate(
             ReactiveRedisConnectionFactory connectionFactory) {
 
-        RedisSerializationContext<String, CurrencyType> serializationContext = RedisSerializationContext
+        RedisSerializationContext<String, CurrencyType>
+                serializationContext = RedisSerializationContext
                 .<String, CurrencyType>newSerializationContext(new StringRedisSerializer())
                 .hashKey(new StringRedisSerializer())
                 .hashValue(new Jackson2JsonRedisSerializer<>(CurrencyType.class))
