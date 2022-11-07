@@ -42,6 +42,7 @@ public class CurrencyTypeController {
 
     @GetMapping("/type/{currencyType}")
     public Mono<ResponseEntity<CurrencyType>> getCurrencyTypeByCurrencyType(@PathVariable("currencyType") String currencyType) {
+        log.info("--getCurrencyTypeByCurrencyType-------currencyType: " + currencyType);
         return currencyTypeService.findByCurrencyType(currencyType)
                 .map(c -> ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(c))
