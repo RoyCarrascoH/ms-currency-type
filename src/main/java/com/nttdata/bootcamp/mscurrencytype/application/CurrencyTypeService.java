@@ -18,6 +18,7 @@ public interface CurrencyTypeService {
     public Mono<CurrencyType> update(CurrencyType currencyType, String idCurrencyType);
 
     public Mono<Void> delete(String idCurrencyType);
+
     public Mono<CurrencyType> findByCurrencyType(String currencyType);
 
 }
